@@ -54,14 +54,14 @@ public class Application {
 		}
 
 		PDResources formResources = form.getDefaultResources();
-		COSName fontName = COSName.getPDFName("Helv");
+		COSName fontName = COSName.getPDFName("Times-Roman");
 		PDFont font = form.getDefaultResources().getFont(fontName);
 		if (font == null) {
-			font = PDType1Font.HELVETICA;
+			font = PDType1Font.TIMES_ROMAN;
 			formResources.put(fontName, font);
 		}
 
-		String appearance = String.format("/%s 0 Tf 0 g", fontName.getName());
+		String appearance = String.format("/%s 10 Tf 0 g", font.getName());
 		form.setDefaultAppearance(appearance);
 
 		Iterator<PDField> fields = form.getFieldIterator();
